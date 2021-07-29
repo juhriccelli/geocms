@@ -3,9 +3,14 @@
 include_once('assets/nav.php');
 ?>
 
- <!DOCTYPE HTML>
- <html lang="pt-br">
+<style>
+  .map {
+    height: 90vh;
+    width: 100%;
+  }
+</style>
  <body>
-      ola
+
+   <?php echo mapa.php;?>
+
  </body>
- </html>
