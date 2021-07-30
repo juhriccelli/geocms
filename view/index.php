@@ -1,6 +1,6 @@
 <?php
 //Inserir o CSS e o Javascript
-include_once('assets/nav.php');
+include_once('assets/navbar.php');
 ?>
 
 <style>
@@ -9,8 +9,7 @@ include_once('assets/nav.php');
     width: 100%;
   }
 </style>
- <body>
 
-   <?php echo mapa.php;?>
+<body>
 
- </body>
+</body>

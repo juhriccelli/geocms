@@ -13,12 +13,10 @@
 
   <link rel="stylesheet" href="assets/css/openlayers-6.6.1.css"> <!-- CSS OpenLayers -->
   <script src="assets/js/openlayers-6.6.1.js"></script> <!-- JS OpenLayers -->
+
+  <link rel="stylesheet" href="assets/css/custom.css"> <!-- CSS Personalizado -->
+
+  <link rel="stylesheet" href="assets/css/navbar.css"> <!-- CSS Navbar -->
 </head>
-
-<body>
-
-</body>
-
-
 
 </html>
