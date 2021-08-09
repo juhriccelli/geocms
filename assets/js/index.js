@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
 
   var hortolandia = [-47.2203, -22.8577];
+  var coordenada = [-47.062928299999996, -22.902798];
 
 
   navigator.geolocation.getCurrentPosition(function(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
-    var coordenada = [longitude, +latitude];
     console.log(coordenada);
     console.log(hortolandia);
   });
