@@ -13,3 +13,5 @@ https://svgmap.webflow.io/
 https://webflow.com/website/Interactive-CMS-Map-Responsive-Collection-List
 
 https://webflow.com/website/SVG-Map?ref=showcase-search&searchValue=map
+
+https://www.ti-enxame.com/pt/geolocation/dadas-coordenadas-latlong-como-podemos-descobrir-cidadepais/972845706/
