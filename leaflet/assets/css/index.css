@@ -1,0 +1,33 @@
+.indexTopo{
+  height: 15vh;
+  background-color: blue;
+}
+
+.indexMeio{
+  height: 60vh;
+  background-color: yellow;
+}
+
+.indexRodape{
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.competicao{
+  height: 18vh;
+  width: 18vh;
+  width: auto;
+  margin: auto;
+}
+
+
+.mapa {
+  height: 95vh;
+  background-image: url("../img/mundo.svg");
+  background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: cover;
+}
