@@ -16,6 +16,7 @@
   width: auto;
   margin: auto;
   cursor: pointer;
+<<<<<<< HEAD
 }
 
 .indexConteudo{
@@ -29,6 +30,8 @@
   width: 50%;
   height: 100%;
   background-color: yellow;
+=======
+>>>>>>> ced13d186684e9965b24ea98ff4f2e931d4584f4
 }
 
 .indexMundo{
@@ -37,7 +40,10 @@
   background-color: blue;
 }
 
+<<<<<<< HEAD
 /* CSS configurando o SVG */
+=======
+>>>>>>> ced13d186684e9965b24ea98ff4f2e931d4584f4
 .mundo {
   height: 95vh;
   background-image: url("../img/mundo.svg");

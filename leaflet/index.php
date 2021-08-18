@@ -6,6 +6,7 @@ include_once("assets/header.php");
 
 <body>
   <div class="mapa" id="ajax">
+<<<<<<< HEAD
     <div class="indexConteudo">
       <div class="indexInfo">
 
@@ -16,6 +17,9 @@ include_once("assets/header.php");
         </div>
       </div>
     </div>
+=======
+
+>>>>>>> ced13d186684e9965b24ea98ff4f2e931d4584f4
   </div>
   <div class="rodape">
     <div class="competicao" id="brasileiro">
