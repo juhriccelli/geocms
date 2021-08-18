@@ -16,6 +16,8 @@
 
   <link rel="stylesheet" href="assets/css/index.css"> <!-- CSS Personalizado -->
   <link rel="stylesheet" href="assets/css/navbar.css"> <!-- CSS Navbar -->
+
+  <script src="assets/js/ajax.js"></script> <!-- JS Ajax  -->
 </head>
 
 
