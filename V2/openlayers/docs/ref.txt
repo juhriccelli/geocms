@@ -17,3 +17,11 @@ https://webflow.com/website/SVG-Map?ref=showcase-search&searchValue=map
 https://www.ti-enxame.com/pt/geolocation/dadas-coordenadas-latlong-como-podemos-descobrir-cidadepais/972845706/
 
 https://leafletjs.com/examples/quick-start/
+
+https://wiki.openstreetmap.org/wiki/Map_internationalization
+
+https://mc.bbbike.org/mc/
+
+https://github.com/mapbox/mapbox-gl-language#languages
+
+https://stackoverflow.com/questions/57259670/translate-openlayers-map-from-e-g-english-to-german
