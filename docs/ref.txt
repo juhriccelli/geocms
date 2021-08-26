@@ -25,3 +25,5 @@ https://mc.bbbike.org/mc/
 https://github.com/mapbox/mapbox-gl-language#languages
 
 https://stackoverflow.com/questions/57259670/translate-openlayers-map-from-e-g-english-to-german
+
+https://www.sportslogos.net/teams/list_by_year/62021/2021_NBA_Logos/

@@ -15,7 +15,8 @@ $lks = [34.0430175, -118.2694428];*/
 
 
 <body>
-	<div id='map' style="width: 100%; height: 100%;">
+	<div id='mapa' style="width: 100%; height: 100%;">
+		<script src="assets/js/main.js"></script>
 	</div>
 </body>
 

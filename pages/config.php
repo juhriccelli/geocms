@@ -13,6 +13,9 @@ define('BASE_PATH', realpath(dirname(__FILE__)));
   <link rel="stylesheet" href="assets/lib/leaflet-1.7.1.css"> <!-- CSS Leaflet  -->
   <script src="assets/lib/leaflet-1.7.1.js"></script> <!-- JS Leaflet  -->
 
+  <link rel="stylesheet" href="assets/lib/ol.css"> <!-- CSS OpenLayers V6.6.1  -->
+  <script src="assets/lib/ol.js"></script> <!-- JS OpenLayers V6.6.1  -->
+
   <script src="assets/lib/jquery-3.6.0.min.js"></script> <!-- Jquery -->
 
   <link rel="stylesheet" href="assets/lib/bootstrap.min.css"> <!-- CSS Bootstrap -->
