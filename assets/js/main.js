@@ -1,11 +1,11 @@
-var map = L.map('mapa').setView([0, 0], 2);
+var map = L.map('mapa').setView([0, 0], 5);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 var icone = L.icon({
-    iconUrl: 'assets/img/paises/ad.png',
+    iconUrl: 'assets/img/clubes/nba/nets.png',
     iconSize: [40, 40]
 });
 
