@@ -1,29 +1,28 @@
 <?php
-//include("config.php");
+include_once("../bd/conectarBD.php");
 
 if (isset($_GET["competicao"])) {
 	$competicao = $_GET["competicao"];
 }
 
-/*$brk = [40.6826465, -73.9754156];
-$lks = [34.0430175, -118.2694428];*/
-
-$lat = 40.6826465;
-$long = -73.9754156;
-
 ?>
 
 <!DOCTYPE html>
 <html>
-<script>
-var lat = "<?php print $lat; ?>"
-var long = "<?php print $long; ?>"
-</script>
+
 <body>
 	<div id='mapa' style="width: 100%; height: 100%;">
-		<script src="assets/js/main.js">
-			L.marker(lat, long);
-		</script>
+		<?php
+				foreach ($conexao->query("SELECT * FROM nba") as $linha) {
+					echo "<tr>";
+					echo "<td>{$linha['clube']}</td>";
+					echo "<td>{$linha['arena']}</td>";
+					echo "<td>{$linha['latitude']}</td>";
+					echo "<td>{$linha['longitude']}</td>";
+					echo "</tr>";
+					echo "<br />";
+				}
+			?>
 	</div>
 </body>
 
