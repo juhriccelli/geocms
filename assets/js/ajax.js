@@ -10,6 +10,12 @@ $(document).ready(function() {
 function buscaPorCompeticao(competicao) {
   $.ajax({
     type: "GET",
+    url: 'pages/consulta.php',
+    data: "competicao=" + competicao, // appears as $_GET['id'] @ your backend side
+  });
+
+  $.ajax({
+    type: "GET",
     url: 'pages/mapa.php',
     data: "competicao=" + competicao, // appears as $_GET['id'] @ your backend side
     success: function(data) {

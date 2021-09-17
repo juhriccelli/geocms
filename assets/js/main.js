@@ -9,4 +9,7 @@ var icone = L.icon({
     iconSize: [40, 40]
 });
 
+var lat = 40.6837282;
+var long = -73.9781808;
+
 L.marker([lat, long], {icon: icone}).addTo(map);
