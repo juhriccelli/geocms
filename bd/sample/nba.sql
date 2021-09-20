@@ -11,7 +11,7 @@ INSERT INTO  nba  (clube, arena, latitude, longitude, imagem)
 VALUES
   ('ATLANTA HAWKS', 'State Farm Arena', '33.7572935', '-84.3985131', 'hawks'),
   ('BOSTON CELTICS', 'TD Garden', '42.366198', '-71.062146', 'celtics'),
-  ('BROOKLYN NETS', 'Barclays Center', '40.6837282', '-73.9781808', 'nets'),
+  ('BROOKLYN NETS', 'Barclays Center', '40.6826465', '-73.9754156', 'nets'),
   ('CHARLOTTE HORNETS', 'Spectrum Center', '35.2251563', '-80.8415798', 'hornets'),
   ('CHICAGO BULLS', 'United Center', '41.8806948', '-87.6763646', 'bulls'),
   ('CLEVELAND CAVALIERS', 'Quicken Loans Arena', '41.4965514', '-81.6902461', 'cavaliers'),

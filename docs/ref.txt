@@ -29,3 +29,5 @@ https://stackoverflow.com/questions/57259670/translate-openlayers-map-from-e-g-e
 https://www.sportslogos.net/teams/list_by_year/62021/2021_NBA_Logos/
 
 https://gis.stackexchange.com/questions/160662/take-data-points-from-mysql-to-leaflet-map-using-php-and-ajax
+
+https://simplemaps.com/data/world-cities

@@ -9,7 +9,7 @@ if (isset($_GET["competicao"])) {
 
 foreach ($conexao->query("SELECT * FROM nba") as $linha) {
   $resultado[] = $linha;
-  file_put_contents('../assets/js/locais.json', json_encode($resultado));
+  //file_put_contents('../assets/js/locais.json', json_encode($resultado));
 }
 
 ?>
