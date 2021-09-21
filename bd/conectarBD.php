@@ -10,5 +10,4 @@
   $conexao = mysqli_connect($servername, $username, $password, $database);
   $conexao->set_charset("utf8");
 
-
- ?>
+?>

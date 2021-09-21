@@ -5,7 +5,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
-$.getJSON("assets/js/locais.json", function(data) {
+$.getJSON("pages/consulta.php", function(data) {
   itens = data;
   itens.forEach(function(item) {
     lat = item.latitude;
@@ -15,7 +15,7 @@ $.getJSON("assets/js/locais.json", function(data) {
 
     var icone = L.icon({
       iconUrl: 'assets/img/clubes/nba/' + imagem + '.png',
-      iconSize: [90, 90]
+      iconSize: [60, 60]
     });
 
     L.marker([lat, long], {

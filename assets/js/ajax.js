@@ -22,7 +22,6 @@ function buscaPorCompeticao(competicao) {
       // data is ur summary
       $('#ajax').html(data);
     }
-
   });
 
 }

@@ -25,7 +25,7 @@ define('BASE_PATH', realpath(dirname(__FILE__)));
   <link rel="stylesheet" href="assets/css/navbar.css"> <!-- CSS Navbar -->
 
   <script src="assets/js/ajax.js"></script> <!-- JS Ajax  -->
-  <script src="assets/js/locais.json"></script> <!-- Dados em JSON  -->
+  <!--<script src="assets/js/locais.json"></script>  Dados em JSON  -->
 
 </head>
 
