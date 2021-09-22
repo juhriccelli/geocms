@@ -5,7 +5,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
-$.getJSON("pages/consulta.php", function(data) {
+$.getJSON("bd/consulta.php", function(data) {
   itens = data;
   itens.forEach(function(item) {
     lat = item.latitude;

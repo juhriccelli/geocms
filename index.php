@@ -43,6 +43,4 @@ include("pages/navbar.php");
 
 
   </div>
-
-
 </body>
