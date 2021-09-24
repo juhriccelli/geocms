@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Set-2021 às 20:27
+-- Tempo de geração: 24-Set-2021 às 21:21
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -24,6 +24,114 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `arena`
+--
+
+CREATE TABLE `arena` (
+  `ID` int(11) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `pais` int(11) DEFAULT NULL,
+  `latitude` varchar(255) DEFAULT NULL,
+  `longitude` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clube`
+--
+
+CREATE TABLE `clube` (
+  `ID` int(11) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `sigla` varchar(5) DEFAULT NULL,
+  `pais` int(11) DEFAULT NULL,
+  `arena` int(11) DEFAULT NULL,
+  `imagem` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `competicao`
+--
+
+CREATE TABLE `competicao` (
+  `ID` int(11) NOT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `nome_oficial` varchar(255) DEFAULT NULL,
+  `zoom_lat` varchar(255) DEFAULT NULL,
+  `zoom_long` varchar(255) DEFAULT NULL,
+  `zoom` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `nba`
+--
+
+CREATE TABLE `nba` (
+  `id` int(11) NOT NULL,
+  `clube` int(11) DEFAULT NULL,
+  `competicao` int(11) DEFAULT NULL,
+  `temporada` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `nba_old`
+--
+
+CREATE TABLE `nba_old` (
+  `id` int(11) NOT NULL,
+  `clube` varchar(100) NOT NULL,
+  `arena` varchar(255) NOT NULL,
+  `latitude` varchar(255) NOT NULL,
+  `longitude` varchar(255) NOT NULL,
+  `imagem` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `nba_old`
+--
+
+INSERT INTO `nba_old` (`id`, `clube`, `arena`, `latitude`, `longitude`, `imagem`) VALUES
+(1, 'ATLANTA HAWKS', 'State Farm Arena', '33.7572935', '-84.3985131', 'hawks'),
+(2, 'BOSTON CELTICS', 'TD Garden', '42.366198', '-71.062146', 'celtics'),
+(3, 'BROOKLYN NETS', 'Barclays Center', '40.6837282', '-73.9781808', 'nets'),
+(4, 'CHARLOTTE HORNETS', 'Spectrum Center', '35.2251563', '-80.8415798', 'hornets'),
+(5, 'CHICAGO BULLS', 'United Center', '41.8806948', '-87.6763646', 'bulls'),
+(6, 'CLEVELAND CAVALIERS', 'Quicken Loans Arena', '41.4965514', '-81.6902461', 'cavaliers'),
+(7, 'DALLAS MAVERICKS', 'American Airlines Center', '32.7903908', '-96.8190094', 'mavs'),
+(8, 'DENVER NUGGETS', 'Ball Arena', '39.7486606', '-105.0097915', 'nuggets'),
+(9, 'DETROIT PISTONS', 'Little Caesars Arena', '42.3411065', '-83.057456', 'pistons'),
+(10, 'GOLDEN STATE WARRIORS', 'Chase Center', '37.7680508', '-122.3899037', 'warriors'),
+(11, 'HOUSTON ROCKETS', 'Toyota Center', '29.750765', '-95.3642892', 'rockets'),
+(12, 'INDIANA PACERS', 'Bankers Life Fieldhouse', '39.7640475', '-86.1577254', 'pacers'),
+(13, 'LOS ANGELES CLIPPERS', 'Staples Center', '33.7572935', '-118.2694428', 'clippers'),
+(14, 'LOS ANGELES LAKERS', 'Staples Center', '33.7572935', '-118.2694428', 'lakers'),
+(15, 'MEMPHIS GRIZZLIES', 'FedExForum', '35.1381462', '-90.0527751', 'grizzles'),
+(16, 'MIAMI HEAT', 'AmericanAirlines Arena', '25.7814062', '-80.1891577', 'heat'),
+(17, 'MILWAUKEE BUCKS', 'Fiserv Forum', '43.0450841', '-87.9195749', 'bucks'),
+(18, 'MINNESOTA TIMBERWOLVES', 'Target Center', '44.9794671', '-93.2782834', 'timberwolves'),
+(19, 'NEW ORLEANS PELICANS', 'Smoothie King Center', '29.9490397', '-90.0842455', 'pelicans'),
+(20, 'NEW YORK KNICKS', 'Madison Square Garden', '40.7463549', '-73.9933644', 'knicks'),
+(21, 'OKLAHOMA CITY THUNDER', 'Chesapeake Energy Arena', '35.463429', '-97.5173025', 'thunder'),
+(22, 'ORLANDO MAGIC', 'Amway Center', '28.5392261', '-81.3860422', 'magic'),
+(23, 'PHILADELPHIA 76ERS', 'Wells Fargo Center', '39.9012015', '-75.189489', '76ers'),
+(24, 'PHOENIX SUNS', 'Talking Stick Resort Arena', '33.4457415', '-112.073389', 'suns'),
+(25, 'PORTLAND TRAIL BLAZERS', 'Moda Center', '45.5315688', '-122.669031', 'blazers'),
+(26, 'SACRAMENTO KINGS', 'Golden 1 Center', '38.5802087', '-121.5018489', 'kings'),
+(27, 'SAN ANTONIO SPURS', 'AT&T Center', '29.4270248', '-98.4396539', 'spurs'),
+(28, 'TORONTO RAPTORS', 'Air Canada Centre', '43.64347', '-79.3812876', 'raptors'),
+(29, 'UTAH JAZZ', 'EnergySolutions Arena', '40.7692359', '-111.9038243', 'jazz'),
+(30, 'WASHINGTON WIZARDS', 'Capital One Arena', '38.8981717', '-77.0230455', 'wizards');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `pais`
 --
 
@@ -32,7 +140,7 @@ CREATE TABLE `pais` (
   `nome` varchar(60) DEFAULT NULL,
   `nome_pt` varchar(60) DEFAULT NULL,
   `sigla` varchar(2) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Países e Nações';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Países e Nações';
 
 --
 -- Extraindo dados da tabela `pais`
@@ -299,10 +407,103 @@ INSERT INTO `pais` (`id`, `nome`, `nome_pt`, `sigla`) VALUES
 --
 
 --
+-- Índices para tabela `arena`
+--
+ALTER TABLE `arena`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `pais` (`pais`);
+
+--
+-- Índices para tabela `clube`
+--
+ALTER TABLE `clube`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `pais` (`pais`),
+  ADD KEY `arena` (`arena`);
+
+--
+-- Índices para tabela `competicao`
+--
+ALTER TABLE `competicao`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Índices para tabela `nba`
+--
+ALTER TABLE `nba`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `clube` (`clube`),
+  ADD KEY `competicao` (`competicao`);
+
+--
+-- Índices para tabela `nba_old`
+--
+ALTER TABLE `nba_old`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `pais`
 --
 ALTER TABLE `pais`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `arena`
+--
+ALTER TABLE `arena`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `clube`
+--
+ALTER TABLE `clube`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `competicao`
+--
+ALTER TABLE `competicao`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `nba`
+--
+ALTER TABLE `nba`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `nba_old`
+--
+ALTER TABLE `nba_old`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `arena`
+--
+ALTER TABLE `arena`
+  ADD CONSTRAINT `arena_ibfk_1` FOREIGN KEY (`pais`) REFERENCES `pais` (`id`);
+
+--
+-- Limitadores para a tabela `clube`
+--
+ALTER TABLE `clube`
+  ADD CONSTRAINT `clube_ibfk_1` FOREIGN KEY (`pais`) REFERENCES `pais` (`id`),
+  ADD CONSTRAINT `clube_ibfk_2` FOREIGN KEY (`arena`) REFERENCES `arena` (`ID`);
+
+--
+-- Limitadores para a tabela `nba`
+--
+ALTER TABLE `nba`
+  ADD CONSTRAINT `nba_ibfk_1` FOREIGN KEY (`clube`) REFERENCES `clube` (`ID`),
+  ADD CONSTRAINT `nba_ibfk_2` FOREIGN KEY (`competicao`) REFERENCES `competicao` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
