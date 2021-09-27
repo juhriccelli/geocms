@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Set-2021 às 20:17
+-- Tempo de geração: 27-Set-2021 às 17:14
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `arena` (
-  `ID` int(11) NOT NULL,
+  `id_arena` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
-  `pais` int(11) DEFAULT NULL,
+  `id_pais` int(11) DEFAULT NULL,
   `latitude` varchar(255) DEFAULT NULL,
   `longitude` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -43,8 +43,8 @@ CREATE TABLE `arena` (
 -- Índices para tabela `arena`
 --
 ALTER TABLE `arena`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `pais` (`pais`);
+  ADD PRIMARY KEY (`id_arena`),
+  ADD KEY `id_pais` (`id_pais`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -54,7 +54,7 @@ ALTER TABLE `arena`
 -- AUTO_INCREMENT de tabela `arena`
 --
 ALTER TABLE `arena`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_arena` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para despejos de tabelas
@@ -64,7 +64,7 @@ ALTER TABLE `arena`
 -- Limitadores para a tabela `arena`
 --
 ALTER TABLE `arena`
-  ADD CONSTRAINT `arena_ibfk_1` FOREIGN KEY (`pais`) REFERENCES `pais` (`id`);
+  ADD CONSTRAINT `arena_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `pais` (`id_pais`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

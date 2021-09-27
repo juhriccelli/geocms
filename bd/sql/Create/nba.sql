@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Set-2021 às 21:21
+-- Tempo de geração: 27-Set-2021 às 17:14
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -28,10 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `nba` (
-  `id` int(11) NOT NULL,
-  `clube` int(11) DEFAULT NULL,
-  `competicao` int(11) DEFAULT NULL,
-  `temporada` varchar(60) DEFAULT NULL
+  `id_nba` int(11) NOT NULL,
+  `id_clube` int(11) DEFAULT NULL,
+  `id_competicao` int(11) DEFAULT NULL,
+  `inicio` int(4) DEFAULT NULL,
+  `fim` int(4) DEFAULT NULL,
+  `atual` varchar(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -42,9 +44,9 @@ CREATE TABLE `nba` (
 -- Índices para tabela `nba`
 --
 ALTER TABLE `nba`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `clube` (`clube`),
-  ADD KEY `competicao` (`competicao`);
+  ADD PRIMARY KEY (`id_nba`),
+  ADD KEY `id_clube` (`id_clube`),
+  ADD KEY `id_competicao` (`id_competicao`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -54,7 +56,7 @@ ALTER TABLE `nba`
 -- AUTO_INCREMENT de tabela `nba`
 --
 ALTER TABLE `nba`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nba` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para despejos de tabelas
@@ -64,8 +66,8 @@ ALTER TABLE `nba`
 -- Limitadores para a tabela `nba`
 --
 ALTER TABLE `nba`
-  ADD CONSTRAINT `nba_ibfk_1` FOREIGN KEY (`clube`) REFERENCES `clube` (`ID`),
-  ADD CONSTRAINT `nba_ibfk_2` FOREIGN KEY (`competicao`) REFERENCES `competicao` (`ID`);
+  ADD CONSTRAINT `nba_ibfk_1` FOREIGN KEY (`id_clube`) REFERENCES `clube` (`id_clube`),
+  ADD CONSTRAINT `nba_ibfk_2` FOREIGN KEY (`id_competicao`) REFERENCES `competicao` (`id_competicao`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

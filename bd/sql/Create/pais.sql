@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Set-2021 às 20:27
+-- Tempo de geração: 27-Set-2021 às 17:14
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `pais` (
-  `id` int(11) NOT NULL,
+  `id_pais` int(11) NOT NULL,
   `nome` varchar(60) DEFAULT NULL,
   `nome_pt` varchar(60) DEFAULT NULL,
   `sigla` varchar(2) DEFAULT NULL
@@ -38,7 +38,7 @@ CREATE TABLE `pais` (
 -- Extraindo dados da tabela `pais`
 --
 
-INSERT INTO `pais` (`id`, `nome`, `nome_pt`, `sigla`) VALUES
+INSERT INTO `pais` (`id_pais`, `nome`, `nome_pt`, `sigla`) VALUES
 (1, 'Brazil', 'Brasil', 'BR'),
 (2, 'Afghanistan', 'Afeganistão', 'AF'),
 (3, 'Albania', 'Albânia, Republica da', 'AL'),
@@ -302,7 +302,7 @@ INSERT INTO `pais` (`id`, `nome`, `nome_pt`, `sigla`) VALUES
 -- Índices para tabela `pais`
 --
 ALTER TABLE `pais`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_pais`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

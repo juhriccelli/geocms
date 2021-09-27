@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Set-2021 às 21:05
+-- Tempo de geração: 27-Set-2021 às 19:16
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -28,12 +28,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `competicao` (
-  `ID` int(11) NOT NULL,
+  `id_competicao` int(11) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `nome_oficial` varchar(255) DEFAULT NULL,
   `zoom_lat` varchar(255) DEFAULT NULL,
   `zoom_long` varchar(255) DEFAULT NULL,
-  `zoom` int(11) DEFAULT NULL
+  `zoom` int(11) DEFAULT NULL,
+  `imagem` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -44,7 +45,7 @@ CREATE TABLE `competicao` (
 -- Índices para tabela `competicao`
 --
 ALTER TABLE `competicao`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id_competicao`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -54,7 +55,7 @@ ALTER TABLE `competicao`
 -- AUTO_INCREMENT de tabela `competicao`
 --
 ALTER TABLE `competicao`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_competicao` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

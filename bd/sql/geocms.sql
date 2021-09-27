@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Set-2021 às 21:21
+-- Tempo de geração: 27-Set-2021 às 19:16
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `arena` (
-  `ID` int(11) NOT NULL,
+  `id_arena` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
-  `pais` int(11) DEFAULT NULL,
+  `id_pais` int(11) DEFAULT NULL,
   `latitude` varchar(255) DEFAULT NULL,
   `longitude` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -42,11 +42,11 @@ CREATE TABLE `arena` (
 --
 
 CREATE TABLE `clube` (
-  `ID` int(11) NOT NULL,
+  `id_clube` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `sigla` varchar(5) DEFAULT NULL,
-  `pais` int(11) DEFAULT NULL,
-  `arena` int(11) DEFAULT NULL,
+  `id_pais` int(11) DEFAULT NULL,
+  `id_arena` int(11) DEFAULT NULL,
   `imagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -57,12 +57,13 @@ CREATE TABLE `clube` (
 --
 
 CREATE TABLE `competicao` (
-  `ID` int(11) NOT NULL,
+  `id_competicao` int(11) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `nome_oficial` varchar(255) DEFAULT NULL,
   `zoom_lat` varchar(255) DEFAULT NULL,
   `zoom_long` varchar(255) DEFAULT NULL,
-  `zoom` int(11) DEFAULT NULL
+  `zoom` int(11) DEFAULT NULL,
+  `imagem` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -72,10 +73,12 @@ CREATE TABLE `competicao` (
 --
 
 CREATE TABLE `nba` (
-  `id` int(11) NOT NULL,
-  `clube` int(11) DEFAULT NULL,
-  `competicao` int(11) DEFAULT NULL,
-  `temporada` varchar(60) DEFAULT NULL
+  `id_nba` int(11) NOT NULL,
+  `id_clube` int(11) DEFAULT NULL,
+  `id_competicao` int(11) DEFAULT NULL,
+  `inicio` int(4) DEFAULT NULL,
+  `fim` int(4) DEFAULT NULL,
+  `atual` varchar(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -136,7 +139,7 @@ INSERT INTO `nba_old` (`id`, `clube`, `arena`, `latitude`, `longitude`, `imagem`
 --
 
 CREATE TABLE `pais` (
-  `id` int(11) NOT NULL,
+  `id_pais` int(11) NOT NULL,
   `nome` varchar(60) DEFAULT NULL,
   `nome_pt` varchar(60) DEFAULT NULL,
   `sigla` varchar(2) DEFAULT NULL
@@ -146,7 +149,7 @@ CREATE TABLE `pais` (
 -- Extraindo dados da tabela `pais`
 --
 
-INSERT INTO `pais` (`id`, `nome`, `nome_pt`, `sigla`) VALUES
+INSERT INTO `pais` (`id_pais`, `nome`, `nome_pt`, `sigla`) VALUES
 (1, 'Brazil', 'Brasil', 'BR'),
 (2, 'Afghanistan', 'Afeganistão', 'AF'),
 (3, 'Albania', 'Albânia, Republica da', 'AL'),
@@ -410,30 +413,30 @@ INSERT INTO `pais` (`id`, `nome`, `nome_pt`, `sigla`) VALUES
 -- Índices para tabela `arena`
 --
 ALTER TABLE `arena`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `pais` (`pais`);
+  ADD PRIMARY KEY (`id_arena`),
+  ADD KEY `id_pais` (`id_pais`);
 
 --
 -- Índices para tabela `clube`
 --
 ALTER TABLE `clube`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `pais` (`pais`),
-  ADD KEY `arena` (`arena`);
+  ADD PRIMARY KEY (`id_clube`),
+  ADD KEY `id_pais` (`id_pais`),
+  ADD KEY `id_arena` (`id_arena`);
 
 --
 -- Índices para tabela `competicao`
 --
 ALTER TABLE `competicao`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id_competicao`);
 
 --
 -- Índices para tabela `nba`
 --
 ALTER TABLE `nba`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `clube` (`clube`),
-  ADD KEY `competicao` (`competicao`);
+  ADD PRIMARY KEY (`id_nba`),
+  ADD KEY `id_clube` (`id_clube`),
+  ADD KEY `id_competicao` (`id_competicao`);
 
 --
 -- Índices para tabela `nba_old`
@@ -445,7 +448,7 @@ ALTER TABLE `nba_old`
 -- Índices para tabela `pais`
 --
 ALTER TABLE `pais`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_pais`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -455,25 +458,25 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de tabela `arena`
 --
 ALTER TABLE `arena`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_arena` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `clube`
 --
 ALTER TABLE `clube`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_clube` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `competicao`
 --
 ALTER TABLE `competicao`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_competicao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `nba`
 --
 ALTER TABLE `nba`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nba` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `nba_old`
@@ -489,21 +492,21 @@ ALTER TABLE `nba_old`
 -- Limitadores para a tabela `arena`
 --
 ALTER TABLE `arena`
-  ADD CONSTRAINT `arena_ibfk_1` FOREIGN KEY (`pais`) REFERENCES `pais` (`id`);
+  ADD CONSTRAINT `arena_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `pais` (`id_pais`);
 
 --
 -- Limitadores para a tabela `clube`
 --
 ALTER TABLE `clube`
-  ADD CONSTRAINT `clube_ibfk_1` FOREIGN KEY (`pais`) REFERENCES `pais` (`id`),
-  ADD CONSTRAINT `clube_ibfk_2` FOREIGN KEY (`arena`) REFERENCES `arena` (`ID`);
+  ADD CONSTRAINT `clube_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `pais` (`id_pais`),
+  ADD CONSTRAINT `clube_ibfk_2` FOREIGN KEY (`id_arena`) REFERENCES `arena` (`id_arena`);
 
 --
 -- Limitadores para a tabela `nba`
 --
 ALTER TABLE `nba`
-  ADD CONSTRAINT `nba_ibfk_1` FOREIGN KEY (`clube`) REFERENCES `clube` (`ID`),
-  ADD CONSTRAINT `nba_ibfk_2` FOREIGN KEY (`competicao`) REFERENCES `competicao` (`ID`);
+  ADD CONSTRAINT `nba_ibfk_1` FOREIGN KEY (`id_clube`) REFERENCES `clube` (`id_clube`),
+  ADD CONSTRAINT `nba_ibfk_2` FOREIGN KEY (`id_competicao`) REFERENCES `competicao` (`id_competicao`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

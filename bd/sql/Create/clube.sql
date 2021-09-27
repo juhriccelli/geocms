@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Set-2021 às 20:18
+-- Tempo de geração: 27-Set-2021 às 17:14
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `clube` (
-  `ID` int(11) NOT NULL,
+  `id_clube` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `sigla` varchar(5) DEFAULT NULL,
-  `pais` int(11) DEFAULT NULL,
-  `arena` int(11) DEFAULT NULL,
+  `id_pais` int(11) DEFAULT NULL,
+  `id_arena` int(11) DEFAULT NULL,
   `imagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,9 +44,9 @@ CREATE TABLE `clube` (
 -- Índices para tabela `clube`
 --
 ALTER TABLE `clube`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `pais` (`pais`),
-  ADD KEY `arena` (`arena`);
+  ADD PRIMARY KEY (`id_clube`),
+  ADD KEY `id_pais` (`id_pais`),
+  ADD KEY `id_arena` (`id_arena`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -56,7 +56,7 @@ ALTER TABLE `clube`
 -- AUTO_INCREMENT de tabela `clube`
 --
 ALTER TABLE `clube`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_clube` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para despejos de tabelas
@@ -66,8 +66,8 @@ ALTER TABLE `clube`
 -- Limitadores para a tabela `clube`
 --
 ALTER TABLE `clube`
-  ADD CONSTRAINT `clube_ibfk_1` FOREIGN KEY (`pais`) REFERENCES `pais` (`id`),
-  ADD CONSTRAINT `clube_ibfk_2` FOREIGN KEY (`arena`) REFERENCES `arena` (`ID`);
+  ADD CONSTRAINT `clube_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `pais` (`id_pais`),
+  ADD CONSTRAINT `clube_ibfk_2` FOREIGN KEY (`id_arena`) REFERENCES `arena` (`id_arena`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
