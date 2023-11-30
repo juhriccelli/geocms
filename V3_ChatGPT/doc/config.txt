@@ -1,0 +1,112 @@
+Certamente! Para configurar um ambiente de teste no Raspberry Pi Model 3, você precisará de um servidor web, PHP e um banco de dados MySQL. Aqui estão as etapas para configurar o ambiente:
+
+
+1. Instalar o Servidor Web (Nginx):
+
+sudo apt update
+sudo apt install nginx
+
+Depois de instalar o Nginx, você pode iniciar o serviço com:
+
+sudo service nginx start
+
+
+2. Instalar o PHP:
+
+sudo apt install php-fpm
+
+
+3. Configurar o Nginx para PHP:
+Edite o arquivo de configuração do Nginx:
+
+sudo nano /etc/nginx/sites-available/default
+
+Substitua o bloco server pelo seguinte:
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.php index.html index.htm;
+
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+
+
+Depois, reinicie o Nginx:
+
+sudo service nginx restart
+
+
+4. Instalar o MySQL:
+
+sudo apt install mysql-server
+
+Durante a instalação, você será solicitado a definir uma senha para o usuário root do MySQL.
+
+5. Criar o Banco de Dados e o Usuário:
+Logue no MySQL:
+
+mysql -u root -p
+
+
+Crie o banco de dados e o usuário:
+
+CREATE DATABASE nomedoBancoDeDados;
+CREATE USER 'nomedoUsuario'@'localhost' IDENTIFIED BY 'suaSenha';
+GRANT ALL PRIVILEGES ON nomedoBancoDeDados.* TO 'nomedoUsuario'@'localhost';
+FLUSH PRIVILEGES;
+
+
+6. Baixar os Arquivos do Site:
+
+sudo mkdir /var/www/html
+sudo chown -R www-data:www-data /var/www/html
+cd /var/www/html
+git clone https://seurepositorio.com/seuprojeto.git .
+
+
+Se você não estiver usando um repositório Git, você pode copiar os arquivos para o diretório /var/www/html de outra maneira.
+
+
+7. Configurar a Classe de Teste no PHP:
+
+Edite o arquivo get_clubs.php conforme fornecido anteriormente para incluir a classe de teste. Certifique-se de que o script tenha permissões de leitura e execução.
+
+
+sudo chmod 755 /var/www/html/get_clubs.php
+
+
+8. Ajustar as Permissões do Diretório:
+
+sudo chown -R www-data:www-data /var/www/html
+
+
+9. Configurar o Banco de Dados:
+
+Você pode criar um banco de dados e tabelas fictícias manualmente no MySQL para testes ou importar um dump de um ambiente de desenvolvimento.
+
+
+10. Reiniciar o PHP-FPM:
+sudo service php7.3-fpm restart
+
+
+11. Acessar o Site:
+Abra um navegador e acesse http://seu_raspberry_pi. Você deve ver a página inicial do seu projeto.
+
+Essas são as etapas básicas para configurar um ambiente de teste no Raspberry Pi. Lembre-se de substituir as informações específicas do seu projeto, como o nome do banco de dados, usuário, senha e detalhes do repositório Git. Este guia assume que você está usando PHP 7.3; ajuste conforme necessário se estiver usando uma versão diferente.
+
+
+

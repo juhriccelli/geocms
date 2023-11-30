@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="main.js" defer></script>
+    <title>Mapa de Estádios</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" id="searchSport">Por Esporte</a></li>
+                <li><a href="#" id="searchLeague">Por Liga</a></li>
+                <li><a href="#" id="searchTeam">Por Time</a></li>
+                <li><a href="#" id="searchCountry">Por País</a></li>
+                <li><a href="#" id="searchCity">Por Cidade</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="map"></div>
+
+    <footer>
+        <div class="logo-grid">
+            <div class="logo" id="brazilianChampionship" onclick="searchByLeague('Campeonato Brasileiro')"></div>
+            <div class="logo" id="libertadores" onclick="searchByLeague('Copa Libertadores')"></div>
+            <div class="logo" id="nba" onclick="searchByLeague('NBA')"></div>
+            <div class="logo" id="nfl" onclick="searchByLeague('NFL')"></div>
+            <div class="logo" id="mlb" onclick="searchByLeague('MLB')"></div>
+        </div>
+    </footer>
+</body>
+</html>
